@@ -30,7 +30,7 @@ $lines = get_team_lines(5);
 
 print "<pre>\n";
 
-foreach ($lines as $positions => $depths) {
+foreach ($lines as $position => $depths) {
     print "position=${position}\n";
     foreach ($depths as $depth => $players) {
         print "depth=${depth}\n";
