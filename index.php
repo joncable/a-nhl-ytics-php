@@ -12,7 +12,7 @@ function get_team_lines($team_id) {
     $pg_conn = pg_connect(pg_connection_string_from_database_url());
 
     // Now let's use the connection for something silly just to prove it works:
-    $result = pg_query($pg_conn, "SELECT depth,player_id FROM lines WHERE team_id=${team_id}");
+    $result = pg_query($pg_conn, "SELECT depth,player_id,position FROM lines WHERE team_id=${team_id}");
 
     $lines = [];
     while ($row = pg_fetch_row($result)) {
