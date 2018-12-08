@@ -18,8 +18,9 @@ function get_team_lines($team_id) {
     while ($row = pg_fetch_row($result)) {
         $depth = $row[0];
         $player_id = $row[1];
+        $position = $row[2] == 'D' ? 'D' : 'F';
 
-        $lines[$depth][] = $player_id;
+        $lines[$position][$depth][] = $player_id;
      }
 
     return $lines;
@@ -29,12 +30,15 @@ $lines = get_team_lines(5);
 
 print "<pre>\n";
 
-foreach ($lines as $line => $players) {
-    print "line=${line}\n";
-    foreach ($players as $player_id) {
-        print "player_id=${player_id} ";
+foreach ($lines as $positions => $depths) {
+    print "position=${position}\n";
+    foreach ($depths as $depth => $players) {
+        print "depth=${depth}\n";
+        foreach ($players as $player_id) {
+            print "player_id=${player_id} ";
+        }
+        print "\n";
     }
-    print "\n";
 }
 
 print "\n";
