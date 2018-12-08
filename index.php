@@ -31,16 +31,18 @@ $lines = get_team_lines(5);
 print "<pre>\n";
 
 foreach ($lines as $position => $depths) {
-    print "position=${position}\n";
+    print '<table style="width:100%">';
+    print "<tr><th>${position}</th></tr>";
     foreach ($depths as $depth => $players) {
-        print "depth=${depth}\n";
+        print "<tr>";
         foreach ($players as $player_id) {
-            print "player_id=${player_id} ";
+            print "<td>${player_id}</td>";
         }
-        print "\n";
+        print "</tr>";
     }
+    print "</table>";
 }
 
-print "\n";
+
 
 ?>
