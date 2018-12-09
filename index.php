@@ -85,7 +85,9 @@ function get_team_lines($team_id) {
     return $lines;
 }
 
-$lines = get_team_lines(5);
+$team_id = $_GET['team_id'];
+
+$lines = get_team_lines($team_id);
 
 foreach ($lines as $position => $depths) {
     echo '<table class="table">';
