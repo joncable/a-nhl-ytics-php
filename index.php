@@ -57,7 +57,7 @@ function get_team_ids() {
     // Now let's use the connection for something silly just to prove it works:
     $result = pg_query($pg_conn, "SELECT DISTINCT team_id FROM lines");
 
-    $team_ids = ();
+    $team_ids = [];
     while ($row = pg_fetch_row($result)) {
         $team_ids[] = $row[0];
      }
