@@ -15,6 +15,8 @@
 </style>
 </head>
 <body>
+<h1>NHLytics</h1>
+<p class="lead">Computed NHL Lines calculated based on their ice time together in most recent game</p>
 <div class="bs-example">
     <nav id="myNavbar" class="navbar navbar-default" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
