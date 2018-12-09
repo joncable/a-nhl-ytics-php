@@ -21,7 +21,7 @@
     <p class="lead">Computed NHL Lines calculated based on their ice time together in most recent game</p>
 </div>
 
-<div class="bs-example">
+<div class="container">
     <nav id="myNavbar" class="navbar navbar-default" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="container">
