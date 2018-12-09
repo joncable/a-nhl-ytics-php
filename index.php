@@ -56,8 +56,8 @@ foreach ($lines as $position => $depths) {
     echo '<table class="table w-50">';
     if ($position == 'F') {
         echo "<tr><th>Left Wing</th><th>Center</th><th>Right Wing<th></tr>";
-    } else if ($position == 'F') {
-        echo "<tr><th>Left Defense</th></tr>";
+    } else if ($position == 'D') {
+        echo "<tr><th>Defense</th></tr>";
     }
     foreach ($depths as $depth => $players) {
         echo "<tr>";
