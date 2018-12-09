@@ -53,16 +53,20 @@ function get_team_lines($team_id) {
 $lines = get_team_lines(5);
 
 foreach ($lines as $position => $depths) {
-    print '<table class="table w-50">';
-    print "<th><tr>${position}</tr></th>";
-    foreach ($depths as $depth => $players) {
-        print "<tr>";
-        foreach ($players as $player_id) {
-            print "<td>${player_id}</td>";
-        }
-        print "</tr>";
+    echo '<table class="table w-50">';
+    if ($position == 'F') {
+        echo "<th><tr>Left Wing</tr><tr>Center</tr><tr>Right Wing<tr></th>";
+    } else if ($position == 'F') {
+        echo "<th><tr>Left Defense</tr><tr>Right Defense<tr></th>";
     }
-    print "</table>";
+    foreach ($depths as $depth => $players) {
+        echo "<tr>";
+        foreach ($players as $player_id) {
+            echo "<td>${player_id}</td>";
+        }
+        echo "</tr>";
+    }
+    echo "</table>";
 }
 
 ?>
