@@ -43,7 +43,7 @@ $lines = get_team_lines(5);
 print "<body>";
 
 foreach ($lines as $position => $depths) {
-    print '<table class="table">';
+    print '<table class="table w-50">';
     print "<th><tr>${position}</tr></th>";
     foreach ($depths as $depth => $players) {
         print "<tr>";
