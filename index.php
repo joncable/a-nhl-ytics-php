@@ -13,9 +13,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>A-NHL-YTICS</title>
+    <title>a-nhl-ytics</title>
 
     </head>
+
+
+    <body>
+        <div class="container">
+              <h1>NHL Lines</h1>
+              <p class="lead">Computed NHL Lines calculated based on their ice time together in most recent game</p>
 <?php
 
 // This function reads your DATABASE_URL config var and returns a connection
@@ -46,8 +52,6 @@ function get_team_lines($team_id) {
 
 $lines = get_team_lines(5);
 
-print "<body>";
-
 foreach ($lines as $position => $depths) {
     print '<table class="table w-50">';
     print "<th><tr>${position}</tr></th>";
@@ -61,8 +65,7 @@ foreach ($lines as $position => $depths) {
     print "</table>";
 }
 
-print "</body>";
-
-
-
 ?>
+
+    </div> <!-- /container -->
+</body>
