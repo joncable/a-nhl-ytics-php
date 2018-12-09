@@ -65,6 +65,8 @@ function get_team_ids() {
     return $team_ids;
 }
 
+$team_ids = get_team_ids();
+
 ?>
 
 <div class="container">
