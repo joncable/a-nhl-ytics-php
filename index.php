@@ -40,11 +40,11 @@ function get_team_lines($team_id) {
 
 $lines = get_team_lines(5);
 
-print "<pre>\n";
+print "<body>";
 
 foreach ($lines as $position => $depths) {
     print '<table class="table">';
-    print "<tr><th>${position}</th></tr>";
+    print "<th><tr>${position}</tr></th>";
     foreach ($depths as $depth => $players) {
         print "<tr>";
         foreach ($players as $player_id) {
@@ -54,6 +54,8 @@ foreach ($lines as $position => $depths) {
     }
     print "</table>";
 }
+
+print "</body>";
 
 
 
