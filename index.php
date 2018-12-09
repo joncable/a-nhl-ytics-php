@@ -55,9 +55,9 @@ $lines = get_team_lines(5);
 foreach ($lines as $position => $depths) {
     echo '<table class="table w-50">';
     if ($position == 'F') {
-        echo "<th><tr>Left Wing</tr><tr>Center</tr><tr>Right Wing<tr></th>";
+        echo "<th><td>Left Wing</td><td>Center</td><td>Right Wing<td></th>";
     } else if ($position == 'F') {
-        echo "<th><tr>Left Defense</tr><tr>Right Defense<tr></th>";
+        echo "<th><td>Left Defense</td></th>";
     }
     foreach ($depths as $depth => $players) {
         echo "<tr>";
