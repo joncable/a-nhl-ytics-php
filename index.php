@@ -26,15 +26,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Brand</a>
+                <a class="navbar-brand" href="#">NHLytics</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">About</a></li>
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Messages <b class="caret"></b></a>
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Lines <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Inbox</a></li>
                             <li><a href="#">Drafts</a></li>
@@ -46,7 +46,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Admin <b class="caret"></b></a>
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Stats <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Action</a></li>
                             <li><a href="#">Another action</a></li>
