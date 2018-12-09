@@ -125,3 +125,4 @@ foreach ($lines as $position => $depths) {
 
     </div> <!-- /container -->
 </body>
+</html>
