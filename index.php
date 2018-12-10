@@ -72,7 +72,27 @@ function get_teams() {
     return $teams;
 }
 
+function get_players() {
+    // Establish database connection
+    $pg_conn = pg_connect(pg_connection_string_from_database_url());
+
+    // Now let's use the connection for something silly just to prove it works:
+    $result = pg_query($pg_conn, "SELECT player_id,name FROM players");
+
+    $players = [];
+    while ($row = pg_fetch_row($result)) {
+        $player_id = $row[0];
+        $player_name = $row[1];
+
+        // Index by player id
+        $players[$player_id] = $player_name;
+     }
+
+    return $players;
+}
+
 $teams = get_teams();
+$players = get_players();
 
 ?>
 
@@ -128,7 +148,7 @@ foreach ($lines as $position => $depths) {
     foreach ($depths as $depth => $players) {
         echo "<tr>";
         foreach ($players as $player_id) {
-            echo "<td>${player_id}</td>";
+            echo "<td>$players[$player_id]</td>";
         }
         echo "</tr>";
     }
