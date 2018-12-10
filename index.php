@@ -148,7 +148,7 @@ foreach ($lines as $position => $depths) {
     foreach ($depths as $depth => $players) {
         echo "<tr>";
         foreach ($players as $player_id) {
-            echo "<td>$players[$player_id]</td>";
+            echo "<td>" . $players[$player_id] . "</td>";
         }
         echo "</tr>";
     }
