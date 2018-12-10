@@ -92,7 +92,6 @@ function get_players() {
 }
 
 $teams = get_teams();
-$players = get_players();
 
 ?>
 
@@ -136,7 +135,11 @@ $players = get_players();
 
 $team_id = $_GET['team_id'];
 
+// get the calculated lines
 $lines = get_team_lines($team_id);
+
+// get mapping of player_id to player name
+$player_names = get_players();
 
 foreach ($lines as $position => $depths) {
     echo '<table class="table">';
@@ -148,7 +151,7 @@ foreach ($lines as $position => $depths) {
     foreach ($depths as $depth => $players) {
         echo "<tr>";
         foreach ($players as $player_id) {
-            echo "<td>" . $players[$player_id] . "</td>";
+            echo "<td>" . $player_names[$player_id] . "</td>";
         }
         echo "</tr>";
     }
