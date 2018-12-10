@@ -137,5 +137,11 @@ foreach ($lines as $position => $depths) {
 
 </div> <!-- /container -->
 
+<?php
+foreach ($teams as $team_id => $team_name) {
+    echo "$team_id = $team_name\n";
+}
+?>
+
 </body>
 </html>
