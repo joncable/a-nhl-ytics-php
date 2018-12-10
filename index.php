@@ -67,7 +67,7 @@ function get_teams() {
      }
 
     // Sort alphabetically by team name
-    return asort($teams);
+    return $teams;
 }
 
 $teams = get_teams();
