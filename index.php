@@ -50,22 +50,27 @@ function get_team_lines($team_id) {
     return $lines;
 }
 
-function get_team_ids() {
+function get_teams() {
     // Establish database connection
     $pg_conn = pg_connect(pg_connection_string_from_database_url());
 
     // Now let's use the connection for something silly just to prove it works:
-    $result = pg_query($pg_conn, "SELECT DISTINCT team_id FROM lines");
+    $result = pg_query($pg_conn, "SELECT team_id,name FROM teams");
 
-    $team_ids = [];
+    $teams = [];
     while ($row = pg_fetch_row($result)) {
-        $team_ids[] = $row[0];
+        $team_id = $row[0];
+        $team_name = $row[1];
+
+        // Index by team id
+        $teams[$team_id] = $team_name;
      }
 
-    return $team_ids;
+    // Sort alphabetically by team name
+    return asort($teams);
 }
 
-$team_ids = get_team_ids();
+$teams = get_teams();
 
 ?>
 
@@ -91,8 +96,8 @@ $team_ids = get_team_ids();
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Lines <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <?php
-                                foreach ($team_ids as $team_id) {
-                                    echo "<li><a href='?team_id=${team_id}'>Team $team_id</a></li>";
+                                foreach ($teams as $team_id => $team_name) {
+                                    echo "<li><a href='?team_id=${team_id}'>$team_name</a></li>";
                                 }
                             ?>
                         </ul>
