@@ -129,11 +129,23 @@ $teams = get_teams();
     </nav>
 </div>
 
-<div class="container">
+
 
 <?php
 
 $team_id = $_GET['team_id'];
+
+
+?>
+
+<div class="container">
+    <img src=<?php print "\"images/teams/${team_id}.png\"";?> alt=<?php print "\"$teams[$team_id]\"";?> class="img-thumbnail">
+    <h1><?php print $teams[$team_id]; ?></h1>
+</div>
+
+<div class="container">
+
+<?php
 
 // get the calculated lines
 $lines = get_team_lines($team_id);
