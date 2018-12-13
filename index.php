@@ -139,7 +139,7 @@ $team_id = $_GET['team_id'];
 ?>
 
 <div class="container">
-    <h1><img src=<?php print "\"images/teams/${team_id}.png\"";?> alt=<?php print "\"$teams[$team_id]\"";?> style="float:left;width:10%">  <?php print $teams[$team_id];?></h1>
+    <h1><img src=<?php print "\"images/teams/${team_id}.png\"";?> alt=<?php print "\"$teams[$team_id]\"";?> style="height: 1em">  <?php print $teams[$team_id];?></h1>
 </div>
 
 <div class="container">
