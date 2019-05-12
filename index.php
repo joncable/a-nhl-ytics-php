@@ -31,20 +31,39 @@ function pg_connection_string_from_database_url() {
     return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
 }
 
-function get_team_lines($team_id) {
+function get_team_forward_lines($team_id) {
     // Establish database connection
     $pg_conn = pg_connect(pg_connection_string_from_database_url());
 
     // Now let's use the connection for something silly just to prove it works:
-    $result = pg_query($pg_conn, "SELECT depth,player_id,position FROM lines WHERE team_id=${team_id}");
+    $result = pg_query($pg_conn, "SELECT depth,player_id,position FROM lines WHERE team_id=${team_id} AND position IN ('L', 'C', 'R')");
 
     $lines = [];
     while ($row = pg_fetch_row($result)) {
         $depth = $row[0];
         $player_id = $row[1];
-        $position = $row[2] == 'D' ? 'D' : 'F';
+        $position = $row[2];
 
-        $lines[$position][$depth][] = $player_id;
+        $lines[$depth][$position]['player_id'] = $player_id;
+     }
+
+    return $lines;
+}
+
+function get_team_defense_lines($team_id) {
+    // Establish database connection
+    $pg_conn = pg_connect(pg_connection_string_from_database_url());
+
+    // Now let's use the connection for something silly just to prove it works:
+    $result = pg_query($pg_conn, "SELECT depth,player_id,position FROM lines WHERE team_id=${team_id} AND position IN ('D')");
+
+    $lines = [];
+    while ($row = pg_fetch_row($result)) {
+        $depth = $row[0];
+        $player_id = $row[1];
+        $position = $row[2];
+
+        $lines[$depth][$position][] = $player_id;
      }
 
     return $lines;
@@ -146,26 +165,40 @@ $team_id = $_GET['team_id'];
 
 <?php
 
-// get the calculated lines
-$lines = get_team_lines($team_id);
+// get the calculated forward lines
+$forward_lines = get_team_forward_lines($team_id);
+
+// get the calculated defensive lines
+$defense_lines = get_team_defense_lines($team_id);
 
 // get mapping of player_id to player name
 $player_names = get_players();
 
-foreach ($lines as $position => $depths) {
+
+foreach ($forward_lines as $depth => $position) {
     echo '<table class="table">';
-    if ($position == 'F') {
-        echo "<tr><th>Left Wing</th><th>Center</th><th>Right Wing<th></tr>";
-    } else if ($position == 'D') {
-        echo "<tr><th>Defense</th></tr>";
-    }
-    foreach ($depths as $depth => $players) {
-        echo "<tr>";
-        foreach ($players as $player_id) {
-            echo "<td>" . $player_names[$player_id] . "</td>";
-        }
-        echo "</tr>";
-    }
+    echo "<tr><th>Left Wing</th><th>Center</th><th>Right Wing<th></tr>";
+    echo "<tr>";
+
+    $center_player_id = $forward_lines[$depth]['C'];
+    $lw_player_id = $forward_lines[$depth]['L'];
+    $rw_player_id = $forward_lines[$depth]['R'];
+
+    // print the forward line
+    echo "<td>" . $player_names[$lw_player_id] . "</td><td>" . $player_names[$c_player_id] . "</td><td>" . $player_names[$rw_player_id] . "</td>";
+    echo "<\tr>";
+}
+
+foreach ($defense_lines as $depth => $defenders) {
+    echo '<table class="table">';
+    echo "<tr><th>Defense</th></tr>";
+    echo "<tr>";
+
+    $ld_player_id = $defenders[0];
+    $rd_player_id = $defenders[1];
+    
+    echo "<td>" . $player_names[$ld_player_id] . "</td><td>" . $player_names[$rd_player_id] . "</td>";
+    echo "</tr>";
     echo "</table>";
 }
 
