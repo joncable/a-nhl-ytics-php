@@ -174,10 +174,9 @@ $defense_lines = get_team_defense_lines($team_id);
 // get mapping of player_id to player name
 $player_names = get_players();
 
-
+echo '<table class="table">';
+echo "<tr><th>Left Wing</th><th>Center</th><th>Right Wing<th></tr>";
 foreach ($forward_lines as $depth => $position) {
-    echo '<table class="table">';
-    echo "<tr><th>Left Wing</th><th>Center</th><th>Right Wing<th></tr>";
     echo "<tr>";
 
     $center_player_id = $forward_lines[$depth]['C'];
@@ -188,19 +187,20 @@ foreach ($forward_lines as $depth => $position) {
     echo "<td>" . $player_names[$lw_player_id] . "</td><td>" . $player_names[$c_player_id] . "</td><td>" . $player_names[$rw_player_id] . "</td>";
     echo "<\tr>";
 }
+echo "</table>";
 
+echo '<table class="table">';
+echo "<tr><th>Defense</th></tr>";
 foreach ($defense_lines as $depth => $defenders) {
-    echo '<table class="table">';
-    echo "<tr><th>Defense</th></tr>";
     echo "<tr>";
 
     $ld_player_id = $defenders[0];
     $rd_player_id = $defenders[1];
-    
+
     echo "<td>" . $player_names[$ld_player_id] . "</td><td>" . $player_names[$rd_player_id] . "</td>";
     echo "</tr>";
-    echo "</table>";
 }
+echo "</table>";
 
 ?>
 
