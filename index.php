@@ -177,8 +177,6 @@ $player_names = get_players();
 echo '<table class="table">';
 echo "<tr><th>Left Wing</th><th>Center</th><th>Right Wing<th></tr>";
 
-error_log("defense_lines=" . print_r($defense_lines, true) . "\n");
-
 foreach ($forward_lines as $line) {
     echo "<tr>";
 
@@ -197,8 +195,8 @@ echo "<tr><th>Defense</th></tr>";
 foreach ($defense_lines as $line) {
     echo "<tr>";
 
-    $ld_player_id = $line[0];
-    $rd_player_id = $line[1];
+    $ld_player_id = $line['D'][0];
+    $rd_player_id = $line['D'][1];
 
     echo "<td>" . $player_names[$ld_player_id] . "</td><td>" . $player_names[$rd_player_id] . "</td>";
     echo "</tr>";
