@@ -44,7 +44,7 @@ function get_team_forward_lines($team_id) {
         $player_id = $row[1];
         $position = $row[2];
 
-        $lines[$depth][$position]['player_id'] = $player_id;
+        $lines[$depth][$position] = $player_id;
      }
 
     return $lines;
