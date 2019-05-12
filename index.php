@@ -180,12 +180,12 @@ echo "<tr><th>Left Wing</th><th>Center</th><th>Right Wing<th></tr>";
 error_log("HI!!!!\n");
 error_log("forward_lines=" . print_r($forward_lines, true) . "\n");
 
-foreach ($forward_lines as $depth => $position) {
+foreach ($forward_lines as $line) {
     echo "<tr>";
 
-    $c_player_id = $forward_lines[$depth]['C'];
-    $lw_player_id = $forward_lines[$depth]['L'];
-    $rw_player_id = $forward_lines[$depth]['R'];
+    $c_player_id = $line['C'];
+    $lw_player_id = $line['L'];
+    $rw_player_id = $line['R'];
 
     // print the forward line
     echo "<td>" . $player_names[$lw_player_id] . "</td><td>" . $player_names[$c_player_id] . "</td><td>" . $player_names[$rw_player_id] . "</td>";
@@ -195,11 +195,11 @@ echo "</table>";
 
 echo '<table class="table">';
 echo "<tr><th>Defense</th></tr>";
-foreach ($defense_lines as $depth => $defenders) {
+foreach ($defense_lines as $line) {
     echo "<tr>";
 
-    $ld_player_id = $defenders[0];
-    $rd_player_id = $defenders[1];
+    $ld_player_id = $line[0];
+    $rd_player_id = $line[1];
 
     echo "<td>" . $player_names[$ld_player_id] . "</td><td>" . $player_names[$rd_player_id] . "</td>";
     echo "</tr>";
