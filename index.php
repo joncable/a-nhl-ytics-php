@@ -176,10 +176,14 @@ $player_names = get_players();
 
 echo '<table class="table">';
 echo "<tr><th>Left Wing</th><th>Center</th><th>Right Wing<th></tr>";
+
+error_log("HI!!!!\n");
+error_log("forward_lines=" . print_r($forward_lines, true) . "\n");
+
 foreach ($forward_lines as $depth => $position) {
     echo "<tr>";
 
-    $center_player_id = $forward_lines[$depth]['C'];
+    $c_player_id = $forward_lines[$depth]['C'];
     $lw_player_id = $forward_lines[$depth]['L'];
     $rw_player_id = $forward_lines[$depth]['R'];
 
