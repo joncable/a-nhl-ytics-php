@@ -157,8 +157,8 @@ if (isset($_GET['about'])) {
 ?>
 <div class="container">
     <p class="lead">Passion project to gather and analyze available hockey data which is hosted on <em>Heroku</em> and built using <em>Python</em> and <em>PostgreSQL</em>. Using <em>BeautifulSoup</em> to scrape shift data from the NHL Play-by-Play pages and making requests to available NHL APIs for player metadata, each team's lines are established by grouping players with whom they spent the most time on the ice. Scheduled jobs run frequently to gather new data, calculating and storing the lines in the <em>PostgreSQL</em> database.</p>
+    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="VERTICAL" data-vanity="jonathancable" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://ca.linkedin.com/in/jonathancable?trk=profile-badge"></a></div>
 </div>
-<div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="VERTICAL" data-vanity="jonathancable" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://ca.linkedin.com/in/jonathancable?trk=profile-badge">Jonathan Cable</a></div>
 <?php
     return;
 }
