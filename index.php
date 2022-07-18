@@ -152,8 +152,8 @@ $teams = get_teams();
 
 <?php
 
-$team_id = $_GET['team_id'];
-
+$team_ids = array_keys($teams);
+$team_id = isset($_GET['team_id']) ? $_GET['team_id'] : $team_ids[array_rand($team_ids)];
 
 ?>
 
