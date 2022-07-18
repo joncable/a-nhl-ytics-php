@@ -155,9 +155,10 @@ $teams = get_teams();
 if (isset($_GET['about'])) {
 ?>
 <div class="container">
-    <p class="about">Passion project to gather and analyze available hockey data which is hosted on Heroku and built using Python and PostgreSQL. Using BeautifulSoup to scrape shift data from the NHL Play-by-Play pages and making requests to available NHL APIs for player metadata, each team's lines are established by grouping players with whom they spent the most time on the ice. Scheduled jobs run frequently to gather new data, calculating and storing the lines in the \emph{PostgreSQL} database.</p>
+    <p class="about">Passion project to gather and analyze available hockey data which is hosted on Heroku and built using Python and PostgreSQL. Using BeautifulSoup to scrape shift data from the NHL Play-by-Play pages and making requests to available NHL APIs for player metadata, each team's lines are established by grouping players with whom they spent the most time on the ice. Scheduled jobs run frequently to gather new data, calculating and storing the lines in the PostgreSQL database.</p>
 </div>
 <?php
+    return;
 }
 
 $team_ids = array_keys($teams);
