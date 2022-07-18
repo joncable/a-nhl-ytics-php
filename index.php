@@ -131,7 +131,7 @@ $teams = get_teams();
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="#">Home</a></li>
-                    <li><a href="/about">About</a></li>
+                    <li><a href="?about">About</a></li>
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Lines <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -151,6 +151,14 @@ $teams = get_teams();
 
 
 <?php
+
+if isset($_GET['about']) {
+?>
+<div class="container">
+    <p class="about">Passion project to gather and analyze available hockey data which is hosted on Heroku and built using Python and PostgreSQL. Using BeautifulSoup to scrape shift data from the NHL Play-by-Play pages and making requests to available NHL APIs for player metadata, each team's lines are established by grouping players with whom they spent the most time on the ice. Scheduled jobs run frequently to gather new data, calculating and storing the lines in the \emph{PostgreSQL} database.</p>
+</div>
+<?php
+}
 
 $team_ids = array_keys($teams);
 $team_id = isset($_GET['team_id']) ? $_GET['team_id'] : $team_ids[array_rand($team_ids)];
